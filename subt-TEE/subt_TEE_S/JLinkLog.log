@@ -1,0 +1,19 @@
+T1DAC 000:000.406   SEGGER J-Link V7.98b Log File
+T1DAC 000:000.507   DLL Compiled: Jul 31 2024 16:10:46
+T1DAC 000:000.517   Logging started @ 2024-11-07 08:58
+T1DAC 000:000.527   Process: C:\Users\27951\.eclipse\com.renesas.platform_1291987301\DebugComp\RA\e2-server-gdb.exe
+T1DAC 000:000.537 - 0.536ms
+T1DAC 000:000.553 JLINK_GetDLLVersion()
+T1DAC 000:000.563 - 0.010ms returns 79802
+T1DAC 000:002.189 JLINK_OpenEx(...)
+T1DAC 000:004.286   Looking for J-Link GUI Server exe at: C:\Users\27951\.eclipse\com.renesas.platform_1291987301\DebugComp\RA\ARM\Segger_v7.98.2\JLinkGUIServer.exe
+T1DAC 000:004.439   Looking for J-Link GUI Server exe at: \JLinkGUIServer.exe
+T1DAC 000:310.635   Failed to connect to J-Link GUI Server.
+T1DAC 000:315.077   
+  ***** Error: 
+T1DAC 000:315.116   Cannot connect to J-Link.
+T1DAC 000:315.461 - 313.270ms returns "Cannot connect to J-Link."
+T1DAC 002:564.472 JLINK_Close()
+T1DAC 002:565.414 - 0.941ms
+T1DAC 002:565.423   
+T1DAC 002:565.427   Closed

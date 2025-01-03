@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<azone>
+    <rzone name="R7FA6M5BH3CFC.rzone"/>
+    <partition>
+        <peripheral name="PORT1" group="PORT">
+            <slot name="P108" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT3" group="PORT">
+            <slot name="P300" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT4" group="PORT">
+            <slot name="P401" secure="true"/>
+            <slot name="P402" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT5" group="PORT">
+            <slot name="P511" secure="true"/>
+            <slot name="P512" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT6" group="PORT">
+            <slot name="P609" secure="true"/>
+            <slot name="P610" secure="true"/>
+        </peripheral>
+        <peripheral name="SCI4" group="SCI" security="s"/>
+        <peripheral name="CANFD0" group="CANFD" security="s"/>
+        <peripheral name="CANFD1" group="CANFD" security="s"/>
+        <peripheral name="CGC" security="s"/>
+        <peripheral name="ICU">
+            <slot name="IRQ0" secure="true"/>
+            <slot name="IRQ1" secure="true"/>
+            <slot name="IRQ2" secure="true"/>
+            <slot name="IRQ3" secure="true"/>
+            <slot name="IRQ4" secure="true"/>
+            <slot name="IRQ5" secure="true"/>
+            <slot name="IRQ6" secure="true"/>
+            <slot name="IRQ7" secure="true"/>
+            <slot name="IRQ8" secure="true"/>
+            <slot name="IRQ9" secure="true"/>
+            <slot name="IRQ10" secure="true"/>
+            <slot name="IRQ11" secure="true"/>
+        </peripheral>
+    </partition>
+</azone>
