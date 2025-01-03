@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<azone>
+    <rzone name="R7FA6M5BH3CFC.rzone"/>
+    <partition>
+        <peripheral name="PORT1" group="PORT">
+            <slot name="P108" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT3" group="PORT">
+            <slot name="P300" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT4" group="PORT">
+            <slot name="P401" secure="true"/>
+            <slot name="P402" secure="true"/>
+            <slot name="P405" secure="false"/>
+            <slot name="P406" secure="false"/>
+        </peripheral>
+        <peripheral name="PORT5" group="PORT">
+            <slot name="P511" secure="true"/>
+            <slot name="P512" secure="true"/>
+        </peripheral>
+        <peripheral name="PORT6" group="PORT">
+            <slot name="P609" secure="true"/>
+            <slot name="P610" secure="true"/>
+        </peripheral>
+        <peripheral name="SCI4" group="SCI" security="s"/>
+        <peripheral name="CANFD0" group="CANFD" security="s"/>
+        <peripheral name="CANFD1" group="CANFD" security="s"/>
+        <peripheral name="CGC" security="s"/>
+        <peripheral name="ICU">
+            <slot name="IRQ0" secure="true"/>
+            <slot name="IRQ1" secure="true"/>
+            <slot name="IRQ2" secure="true"/>
+            <slot name="IRQ3" secure="true"/>
+            <slot name="IRQ4" secure="true"/>
+            <slot name="IRQ5" secure="true"/>
+            <slot name="IRQ6" secure="true"/>
+            <slot name="IRQ7" secure="true"/>
+            <slot name="IRQ8" secure="true"/>
+            <slot name="IRQ9" secure="true"/>
+            <slot name="IRQ10" secure="true"/>
+            <slot name="IRQ11" secure="true"/>
+            <slot name="IRQ12" secure="false"/>
+        </peripheral>
+        <memory parent="RAM" name="RAM_CM33_S" size="0x4000" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="RAM" name="RAM_CM33_C" size="0x0" offset="0x4000" security="c" Pname="CM33"/>
+        <memory parent="FLASH" name="FLASH_CM33_S" size="0x7C00" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="FLASH" name="FLASH_CM33_C" size="0x400" offset="0x7C00" security="c" Pname="CM33"/>
+        <memory parent="DATA_FLASH" name="DATA_FLASH_CM33_S" size="0x0" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="OPTION_SETTING" name="OPTION_SETTING_CM33_S" size="0x80" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="OPTION_SETTING_S" name="OPTION_SETTING_S_CM33_S" size="0xD0" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="ID_CODE" name="ID_CODE_CM33_S" size="0x0" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="SDRAM" name="SDRAM_CM33_S" size="0x0" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="QSPI_FLASH" name="QSPI_FLASH_CM33_S" size="0x0" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="OSPI_DEVICE_0" name="OSPI_DEVICE_0_CM33_S" size="0x0" offset="0x0" security="s" Pname="CM33"/>
+        <memory parent="OSPI_DEVICE_1" name="OSPI_DEVICE_1_CM33_S" size="0x0" offset="0x0" security="s" Pname="CM33"/>
+        <peripheral name="PORT2" group="PORT">
+            <slot name="P211" secure="false"/>
+            <slot name="P214" secure="false"/>
+        </peripheral>
+        <peripheral name="PORT7" group="PORT">
+            <slot name="P700" secure="false"/>
+            <slot name="P701" secure="false"/>
+            <slot name="P702" secure="false"/>
+            <slot name="P703" secure="false"/>
+            <slot name="P704" secure="false"/>
+            <slot name="P705" secure="false"/>
+        </peripheral>
+        <peripheral name="PORT8" group="PORT">
+            <slot name="P802" secure="false"/>
+        </peripheral>
+        <peripheral name="ETHERC0" group="ETHERC" security="n"/>
+    </partition>
+    <zones>
+        <zone name="CM33_S" Pname="CM33" security="s">
+            <assign memory="RAM_CM33_S"/>
+            <assign memory="RAM_CM33_C"/>
+            <assign memory="FLASH_CM33_S"/>
+            <assign memory="FLASH_CM33_C"/>
+            <assign memory="DATA_FLASH_CM33_S"/>
+            <assign memory="OPTION_SETTING_CM33_S"/>
+            <assign memory="OPTION_SETTING_S_CM33_S"/>
+            <assign memory="ID_CODE_CM33_S"/>
+            <assign memory="SDRAM_CM33_S"/>
+            <assign memory="QSPI_FLASH_CM33_S"/>
+            <assign memory="OSPI_DEVICE_0_CM33_S"/>
+            <assign memory="OSPI_DEVICE_1_CM33_S"/>
+            <assign group="PORT" peripheral="PORT1.P108"/>
+            <assign group="PORT" peripheral="PORT3.P300"/>
+            <assign group="PORT" peripheral="PORT4.P401"/>
+            <assign group="PORT" peripheral="PORT4.P402"/>
+            <assign group="PORT" peripheral="PORT5.P511"/>
+            <assign group="PORT" peripheral="PORT5.P512"/>
+            <assign group="PORT" peripheral="PORT6.P609"/>
+            <assign group="PORT" peripheral="PORT6.P610"/>
+            <assign group="SCI" peripheral="SCI4"/>
+            <assign group="CANFD" peripheral="CANFD0"/>
+            <assign group="CANFD" peripheral="CANFD1"/>
+            <assign peripheral="CGC"/>
+            <assign peripheral="ICU.IRQ0"/>
+            <assign peripheral="ICU.IRQ1"/>
+            <assign peripheral="ICU.IRQ2"/>
+            <assign peripheral="ICU.IRQ3"/>
+            <assign peripheral="ICU.IRQ4"/>
+            <assign peripheral="ICU.IRQ5"/>
+            <assign peripheral="ICU.IRQ6"/>
+            <assign peripheral="ICU.IRQ7"/>
+            <assign peripheral="ICU.IRQ8"/>
+            <assign peripheral="ICU.IRQ9"/>
+            <assign peripheral="ICU.IRQ10"/>
+            <assign peripheral="ICU.IRQ11"/>
+        </zone>
+    </zones>
+</azone>

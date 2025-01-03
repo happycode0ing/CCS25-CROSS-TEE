@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ddscApi>
+    <fsp module="module.driver.uart_on_sci_uart">
+        <file>ra/fsp/inc/instances/r_sci_uart.h</file>
+        <file>ra/fsp/inc/api/r_transfer_api.h</file>
+        <file>ra/fsp/inc/api/r_uart_api.h</file>
+        <file>ra_cfg/fsp_cfg/r_sci_uart_cfg.h</file>
+    </fsp>
+    <fsp module="module.driver.canfd_on_canfd">
+        <file>ra/fsp/inc/instances/r_canfd.h</file>
+        <file>ra/fsp/inc/api/r_can_api.h</file>
+        <file>ra_cfg/fsp_cfg/r_canfd_cfg.h</file>
+    </fsp>
+</ddscApi>
