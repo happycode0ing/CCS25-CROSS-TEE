@@ -1,1 +1,1 @@
-# USENIXSecurity25-DTEE
+# USENIXSecurity25-DTEE-SINRA
