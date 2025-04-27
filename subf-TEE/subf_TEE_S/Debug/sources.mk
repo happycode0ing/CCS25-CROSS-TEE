@@ -64,5 +64,6 @@ src/SysTick \
 src/canfd \
 src \
 src/my_nsc_api \
+src/secure_modules/encryption \
 src/uart \
 

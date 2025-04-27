@@ -56,7 +56,7 @@ src/SysTick/bsp_SysTick.o: ../src/SysTick/bsp_SysTick.c \
  D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/api/r_uart_api.h \
  D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/api/r_transfer_api.h \
  D:/Workspace_e2s/subt_TEE_S/ra_cfg/fsp_cfg/r_sci_uart_cfg.h \
- D:/Workspace_e2s/subt_TEE_S/src/secure_modules/key_management.h
+ D:/Workspace_e2s/subt_TEE_S/src/secure_modules/encryption/key_management.h
 ../src/SysTick/bsp_SysTick.h:
 D:/Workspace_e2s/subt_TEE_S/ra_gen/hal_data.h:
 D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/api/bsp_api.h:
@@ -114,4 +114,4 @@ D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/instances/r_sci_uart.h:
 D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/api/r_uart_api.h:
 D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/api/r_transfer_api.h:
 D:/Workspace_e2s/subt_TEE_S/ra_cfg/fsp_cfg/r_sci_uart_cfg.h:
-D:/Workspace_e2s/subt_TEE_S/src/secure_modules/key_management.h:
+D:/Workspace_e2s/subt_TEE_S/src/secure_modules/encryption/key_management.h:

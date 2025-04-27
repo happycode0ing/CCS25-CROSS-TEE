@@ -64,6 +64,7 @@ src/SysTick \
 src/canfd \
 src \
 src/my_nsc_api \
+src/secure_modules/encryption \
 src/secure_modules \
 src/trustedhouses/house1 \
 src/trustedhouses/house2 \

@@ -6,7 +6,7 @@
  */
 
 #include "net_user_app.h"
-#include "encryption/encryption.h"
+//#include "encryption/encryption.h"
 #include "SysTick/bsp_SysTick.h"
 
 // added by lss
@@ -508,19 +508,13 @@ int vUDPSend(const char *pcIPAddress, char *pcBufferToTransmit, const size_t xTo
     uint64_t start, end;
     uint64_t cpu_time_used1, cpu_time_used2;
 
-    for( ; ulCount < 5; ulCount++)
+    for( ; ulCount < 1; ulCount++)
     {
-        uint64_t nums = 2;  // data length = 1024B * nums, nums KB
+        uint64_t nums = 1;  // data length = 1024B * nums, nums KB
         int xret;
 
         /* Create the string that is sent. */
         sprintf( cString, "%s", pcBufferToTransmit);
-
-        start = system_get_time();
-        encrypt_data((uint8_t *)cString, xTotalLengthToSend);
-        end = system_get_time();
-        cpu_time_used1 = end - start;
-
 
         /* Send the string to the UDP socket. ulFlags is set to 0, so the standard
            semantics are used. That means the data from cString[] is copied
@@ -531,7 +525,6 @@ int vUDPSend(const char *pcIPAddress, char *pcBufferToTransmit, const size_t xTo
 
 //        for(int i = 0; i < nums; i++)
 //        {
-//            encrypt_data((uint8_t *)pcBufferToTransmit, xTotalLengthToSend);
             xret = FreeRTOS_sendto( xSocket, cString, xTotalLengthToSend, 0, &xDestinationAddress, sizeof( xDestinationAddress ) );
 //        }
 
@@ -540,8 +533,13 @@ int vUDPSend(const char *pcIPAddress, char *pcBufferToTransmit, const size_t xTo
 
         if(xret > 0)
         {
-            printf("send(%u): %s\r\n", xTotalLengthToSend, cString);
-            printf("%u\r\n", (unsigned int)((cpu_time_used1+cpu_time_used2) & 0xffffffff));
+            printf("send(%u):\r\n", xTotalLengthToSend);
+            for(unsigned int i = 0; i < xTotalLengthToSend; i++)
+            {
+                printf("%02x", cString[i]);
+            }
+            printf("\r\n");
+            printf("%u\r\n", (unsigned int)((cpu_time_used2) & 0xffffffff));
             ret = 0;
         }
         else{
@@ -551,6 +549,25 @@ int vUDPSend(const char *pcIPAddress, char *pcBufferToTransmit, const size_t xTo
         /* Wait until it is time to send again. */
         vTaskDelay( x1000ms );
     }
+
+//    /* 统计内存开销 */
+//    // 获取当前空闲内存大小
+//    size_t free_heap0 = xPortGetFreeHeapSize();
+//
+//    // 获取最小剩余内存大小
+//    size_t min_free_heap0 = xPortGetMinimumEverFreeHeapSize();
+//
+//    // 获取堆的总大小
+//    size_t total_heap0 = configTOTAL_HEAP_SIZE;
+//
+//    // 计算已分配内存大小
+//    size_t used_heap0 = total_heap0 - free_heap0;
+//
+//    // 计算最大内存使用量
+//    size_t max_used_heap0 = total_heap0 - min_free_heap0;
+//
+//    printf("Used heap size: %dB\n", used_heap0);
+//    printf("Maximum used heap size: %dB\n", max_used_heap0);
 
     return ret;
 }

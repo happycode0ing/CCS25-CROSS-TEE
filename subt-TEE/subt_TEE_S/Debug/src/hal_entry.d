@@ -57,7 +57,8 @@ src/hal_entry.o: ../src/hal_entry.c \
  D:/Workspace_e2s/subt_TEE_S/ra_cfg/fsp_cfg/r_sci_uart_cfg.h \
  ../src/uart/bsp_uart.h ../src/canfd/bsp_canfd0.h \
  ../src/canfd/bsp_canfd1.h ../src/secure_modules/house_owner.h \
- ../src/SysTick/bsp_SysTick.h
+ ../src/SysTick/bsp_SysTick.h \
+ ../src/secure_modules/encryption/encryption.h
 D:/Workspace_e2s/subt_TEE_S/ra_gen/hal_data.h:
 D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/api/bsp_api.h:
 D:/Workspace_e2s/subt_TEE_S/ra/fsp/inc/api/fsp_common_api.h:
@@ -119,3 +120,4 @@ D:/Workspace_e2s/subt_TEE_S/ra_cfg/fsp_cfg/r_sci_uart_cfg.h:
 ../src/canfd/bsp_canfd1.h:
 ../src/secure_modules/house_owner.h:
 ../src/SysTick/bsp_SysTick.h:
+../src/secure_modules/encryption/encryption.h:

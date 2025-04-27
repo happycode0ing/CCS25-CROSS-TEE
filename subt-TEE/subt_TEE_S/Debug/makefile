@@ -14,6 +14,7 @@ RM := rm -rf
 -include src/trustedhouses/house3/subdir.mk
 -include src/trustedhouses/house2/subdir.mk
 -include src/trustedhouses/house1/subdir.mk
+-include src/secure_modules/encryption/subdir.mk
 -include src/secure_modules/subdir.mk
 -include src/my_nsc_api/subdir.mk
 -include src/canfd/subdir.mk
@@ -90,29 +91,29 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-TrustZone_S_Ethernet.srec \
+subt_TEE_S.srec \
 
 SECONDARY_SIZE += \
-TrustZone_S_Ethernet.siz \
+subt_TEE_S.siz \
 
 
 # All Target
-all: TrustZone_S_Ethernet.elf secondary-outputs
+all: subt_TEE_S.elf secondary-outputs
 
 # Tool invocations
-TrustZone_S_Ethernet.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > TrustZone_S_Ethernet.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -mcmse -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "fsp.ld" -Xlinker --gc-sections -L "D:\\DTEE\\subt-TEE\\subt_TEE_S/script" -Wl,-Map,"TrustZone_S_Ethernet.map" --specs=nano.specs -u _printf_float -Wl,--cmse-implib -Wl,--out-implib=secure.o -o "TrustZone_S_Ethernet.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
-	@echo Building target: $@ && arm-none-eabi-gcc @"TrustZone_S_Ethernet.elf.in"
-TrustZone_S_Ethernet.srec: TrustZone_S_Ethernet.elf
-	arm-none-eabi-objcopy -O srec "TrustZone_S_Ethernet.elf"  "TrustZone_S_Ethernet.srec"
-TrustZone_S_Ethernet.siz: TrustZone_S_Ethernet.elf
-	arm-none-eabi-size --format=berkeley "TrustZone_S_Ethernet.elf"
+subt_TEE_S.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
+	$(file > subt_TEE_S.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -mcmse -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "fsp.ld" -Xlinker --gc-sections -L "D:\\Workspace_e2s\\subt_TEE_S/script" -Wl,-Map,"subt_TEE_S.map" --specs=nano.specs -u _printf_float -Wl,--cmse-implib -Wl,--out-implib=secure.o -o "subt_TEE_S.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	@echo Building target: $@ && arm-none-eabi-gcc @"subt_TEE_S.elf.in"
+subt_TEE_S.srec: subt_TEE_S.elf
+	arm-none-eabi-objcopy -O srec "subt_TEE_S.elf"  "subt_TEE_S.srec"
+subt_TEE_S.siz: subt_TEE_S.elf
+	arm-none-eabi-size --format=berkeley "subt_TEE_S.elf"
 # Other Targets
 clean:
 	-$(file > clean_file.tmp,  $(JMP_DEPS)  $(FSY_DEPS)  $(C_UPPER_DEPS)  $(SECONDARY_SIZE)  $(SRC_UPPER_DEPS)  $(P_UPPER_DEPS)  $(S_DEPS)  $(PP_UPPER_DEPS)  $(P_DEPS)  $(FSY_UPPER_DEPS)  $(C_DEPS)  $(SRC_DEPS)  $(JMP_UPPER_DEPS)  $(PP_DEPS)  $(SX_DEPS)  $(ASM_UPPER_DEPS)  $(SX_UPPER_DEPS)  $(OBJS)  $(SECONDARY_FLASH)  $(ASM_DEPS)  $(SREC)  $(S_UPPER_DEPS)  $(MAP) )
 	-@ xargs -P 2 -s 32000 -t -a clean_file.tmp $(RM)
 	-@$(RM) clean_file.tmp
-	-$(RM)  TrustZone_S_Ethernet.elf
+	-$(RM)  subt_TEE_S.elf
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)

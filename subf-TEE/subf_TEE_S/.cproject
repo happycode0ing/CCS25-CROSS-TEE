@@ -5,7 +5,7 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.776537365" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<macros>
 					<stringListMacro name="UserNscApiFiles" type="VALUE_PATH_FILE_LIST">
-						<value name="&quot;D:\DTEE\subf-TEE\subf_TEE_S\src\my_nsc_api\my_nsc_api.h&quot;"/>
+						<value name="&quot;${workspace_loc:/subf_TEE_S/src/my_nsc_api/my_nsc_api.h}&quot;"/>
 					</stringListMacro>
 				</macros>
 				<externalSettings/>
@@ -453,13 +453,6 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/TrustZone_S_Ethernet"/>
-		</configuration>
-		<configuration configurationName="Release">
-			<resource resourceType="PROJECT" workspacePath="/TrustZone_S_Ethernet"/>
-		</configuration>
-	</storageModule>
+	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

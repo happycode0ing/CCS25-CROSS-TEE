@@ -171,7 +171,7 @@ void CANFD1_Operation(void)
     }
 
 
-    CANFD1_MSG_PRINTF("CANFD1 正在使用 CAN FD 帧传输数据");
+//    CANFD1_MSG_PRINTF("CANFD1 正在使用 CAN FD 帧传输数据");
 
     /* 通过 mail box #0 传输数据 */
     err = FSP_GUARD_g_canfd1_R_CANFD_Write(CAN_MAILBOX_NUMBER_0, &canfd1_tx_frame);
@@ -185,6 +185,8 @@ void CANFD1_Operation(void)
         CANFD1_MSG_PRINTF("传输超时！！传输失败！！");
         return;
     }
-    CANFD1_MSG_PRINTF("传输完成");
+//    CANFD1_MSG_PRINTF("传输完成");
 }
+
+
 

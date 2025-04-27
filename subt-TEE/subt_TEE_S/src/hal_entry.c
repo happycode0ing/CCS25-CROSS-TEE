@@ -4,6 +4,7 @@
 #include "canfd/bsp_canfd1.h"
 #include "secure_modules/house_owner.h"
 #include "SysTick/bsp_SysTick.h"
+#include "secure_modules/encryption/encryption.h"
 
 FSP_CPP_HEADER
 void R_BSP_WarmStart(bsp_warm_start_event_t event);
@@ -35,8 +36,45 @@ void hal_entry(void)
     SysTick_Init(100);
 //    trustedhouse_init();
 
-
     printf("this is TrustZone Secure World!\r\n");
+
+//    /* 加解密测试 */
+//    printf("测试NS加解密功能：\r\n");
+//    uint8_t m[] = "secret data2";
+//    unsigned int mlen = strlen(m);
+//    uint8_t *c = (uint8_t *)malloc(1024*sizeof(uint8_t));
+//    unsigned long long *clen = (unsigned long long *)malloc(sizeof(unsigned long long));
+//
+//    printf("plain text(%d): %s\r\n", mlen, m);
+//
+//    printf("测试通过NS World的加密函数进行加密数据：\r\n");
+//    printf("mlen = %d\r\n", mlen);
+//    encrypt_data(c, clen, m, mlen);
+//    printf("encrypted text:\r\n");
+//
+//    for(unsigned int i = 0; i < (*clen); i++)
+//    {
+//        printf("%02x", c[i]);
+//    }
+//    printf("\r\n");
+//
+//    uint8_t *dec_m = (uint8_t *)malloc(1024*sizeof(uint8_t));
+//    unsigned long long *dec_mlen = (unsigned long long *)malloc(sizeof(unsigned long long));
+//    printf("测试通过NS World的解密函数 解密数据：\r\n");
+//    decrypt_data(dec_m, dec_mlen, c, *clen);
+//    printf("decrypted text:\r\n");
+//    for(unsigned int i = 0; i < (*dec_mlen); i++)
+//    {
+//        printf("%c", dec_m[i]);
+//    }
+//
+//    printf("\r\n");
+
+//    // 避免进入normal world 【仅用于开发测试】
+//    while(1)
+//    {
+//        ;
+//    }
 
 //    printf("Trusted House Test!\r\n");
 //    // trusted house 1
@@ -64,11 +102,12 @@ void hal_entry(void)
 //    trustedhouse_destroy(th1.housekeeper_id);
 //    trustedhouse_destroy(th2.housekeeper_id);
 //    trustedhouse_destroy(th3.housekeeper_id);
-
+//
 //    while(1)
 //    {
 //        ;
 //    }
+
 //    printf("这是一个 CAN FD 通讯例程\r\n");
 //    printf("打开串口助手发送以下指令，对 CAN-FD 进行相应的操作\r\n");
 //    printf("\t指令   ------  操作\r\n");
@@ -76,6 +115,7 @@ void hal_entry(void)
 //    printf("\t 1   ------  CAN-FD1 发送数据帧\r\n");
 //    printf("\t=======================================\r\n\r\n");
 //
+//    uint64_t frame_num = 1;
 //
 //    while(1)
 //    {
@@ -84,13 +124,16 @@ void hal_entry(void)
 //            canfd0_senddata_enable = false; //清零标志位
 //
 //            /* 测试从 CANFD0 发送到 CANFD1 */
-//            CANFD0_Operation();
+//            for(int i = frame_num; i > 0; i--)
+//            {
+//                CANFD0_Operation();
+//            }
 //
-//            printf("等待 CANFD1 接收完成中断\r\n");
+////            printf("等待 CANFD1 接收完成中断\r\n");
 //            while (false == canfd1_rx_complete_flag);
 //            canfd1_rx_complete_flag = false;
 //
-//            printf("CANFD0 -> CANFD1 开始验证数据\r\n");
+////            printf("CANFD0 -> CANFD1 开始验证数据\r\n");
 //            for( uint16_t j = 0; j < canfd0_tx_frame.data_length_code; j++)
 //            {
 //                if (canfd0_tx_frame.data[j] != canfd1_rx_frame.data[j])
@@ -106,13 +149,16 @@ void hal_entry(void)
 //            canfd1_senddata_enable = false; //清零标志位
 //
 //            /* 测试从 CANFD1 发送到 CANFD0 */
-//            CANFD1_Operation();
+//            for(int i = frame_num; i > 0; i--)
+//            {
+//                CANFD1_Operation();
+//            }
 //
-//            printf("等待 CANFD0 接收完成中断\r\n");
+////            printf("等待 CANFD0 接收完成中断\r\n");
 //            while (false == canfd0_rx_complete_flag);
 //            canfd0_rx_complete_flag = false;
 //
-//            printf("CANFD1 -> CANFD0 开始验证数据\r\n");
+////            printf("CANFD1 -> CANFD0 开始验证数据\r\n");
 //            for( uint16_t j = 0; j < canfd1_tx_frame.data_length_code; j++)
 //            {
 //                if (canfd1_tx_frame.data[j] != canfd0_rx_frame.data[j])
@@ -124,7 +170,7 @@ void hal_entry(void)
 //        }
 //    }
 
-    printf("Secure World CAN FD 通讯测试完毕！\r\n");
+//    printf("Secure World CAN FD 通讯测试完毕！\r\n");
 
 
 #if BSP_TZ_SECURE_BUILD

@@ -4,7 +4,7 @@
 		<cconfiguration id="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.1121331549">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.renesas.cdt.managedbuild.gnuarm.config.elf.debug.1121331549" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<macros>
-					<stringMacro name="SmartBundle" type="VALUE_PATH_FILE" value="D:\DTEE\subf-TEE\subf_TEE_S\Debug\TrustZone_S_Ethernet.sbd"/>
+					<stringMacro name="SmartBundle" type="VALUE_PATH_FILE" value="D:\Workspace_e2s\subf_TEE_S\Debug\subf_TEE_S.sbd"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -593,13 +593,6 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/TrustZone_NS_Ethernet"/>
-		</configuration>
-		<configuration configurationName="Release">
-			<resource resourceType="PROJECT" workspacePath="/TrustZone_NS_Ethernet"/>
-		</configuration>
-	</storageModule>
+	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

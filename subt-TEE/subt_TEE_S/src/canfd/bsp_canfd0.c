@@ -166,7 +166,7 @@ void CANFD0_Operation(void)
     }
 
 
-    CANFD0_MSG_PRINTF("CANFD0 正在使用 CAN FD 帧传输数据");
+//    CANFD0_MSG_PRINTF("CANFD0 正在使用 CAN FD 帧传输数据");
 
     /* 通过 mail box #0 传输数据 */
     err = R_CANFD_Write(&g_canfd0_ctrl, CAN_MAILBOX_NUMBER_0, &canfd0_tx_frame);
@@ -180,7 +180,7 @@ void CANFD0_Operation(void)
         CANFD0_MSG_PRINTF("传输超时！！传输失败！！");
         return;
     }
-    CANFD0_MSG_PRINTF("传输完成");
+//    CANFD0_MSG_PRINTF("传输完成");
 }
 
 

@@ -3,7 +3,7 @@
 	<name>TrustZone_NS_Ethernet</name>
 	<comment></comment>
 	<projects>
-		<project>TrustZone_S_Ethernet</project>
+		<project>subt_TEE_S</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

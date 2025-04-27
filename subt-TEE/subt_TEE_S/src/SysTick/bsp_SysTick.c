@@ -5,7 +5,7 @@
  *      Author: 27951
  */
 #include "bsp_SysTick.h"
-#include "secure_modules/key_management.h"
+#include "secure_modules/encryption/key_management.h"
 //#include "r_canfd.h"
 
 //extern volatile uint64_t canfd_transmission_num;

@@ -157,6 +157,9 @@ void CANFD0_Operation(void)
     fsp_err_t err = FSP_SUCCESS;
     uint32_t time_out = WAIT_TIME;
 
+    // CANFD0调用次数更新
+//    canfd0_call_nums++;
+
     /* 更新 FD 帧的参数 */
     canfd0_tx_frame.id = CAN_ID;
     canfd0_tx_frame.id_mode = CAN_ID_MODE_EXTENDED;
@@ -171,7 +174,7 @@ void CANFD0_Operation(void)
     }
 
 
-    CANFD0_MSG_PRINTF("CANFD0 正在使用 CAN FD 帧传输数据");
+//    CANFD0_MSG_PRINTF("CANFD0 正在使用 CAN FD 帧传输数据");
 
     /* 通过 mail box #0 传输数据 */
     err = FSP_GUARD_g_canfd0_R_CANFD_Write(CAN_MAILBOX_NUMBER_0, &canfd0_tx_frame);
@@ -186,5 +189,5 @@ void CANFD0_Operation(void)
         CANFD0_MSG_PRINTF("传输超时！！传输失败！！");
         return;
     }
-    CANFD0_MSG_PRINTF("传输完成");
+//    CANFD0_MSG_PRINTF("传输完成");
 }

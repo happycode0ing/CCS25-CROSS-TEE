@@ -71,7 +71,6 @@ ra/fsp/src/rm_freertos_port \
 ra_gen \
 src/SysTick \
 src/canfd \
-src/encryption \
 src \
 src/uart \
 

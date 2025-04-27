@@ -11,7 +11,6 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/uart/subdir.mk
--include src/encryption/subdir.mk
 -include src/canfd/subdir.mk
 -include src/SysTick/subdir.mk
 -include src/subdir.mk
@@ -95,29 +94,29 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-TrustZone_NS_Ethernet.hex \
+subf_TEE_NS.hex \
 
 SECONDARY_SIZE += \
-TrustZone_NS_Ethernet.siz \
+subf_TEE_NS.siz \
 
 
 # All Target
-all: TrustZone_NS_Ethernet.elf secondary-outputs
+all: subf_TEE_NS.elf secondary-outputs
 
 # Tool invocations
-TrustZone_NS_Ethernet.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > TrustZone_NS_Ethernet.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "fsp.ld" -Xlinker --gc-sections -L "D:\\DTEE\\subf-TEE\\subf_TEE_NS/script" -Wl,-Map,"TrustZone_NS_Ethernet.map" --specs=nano.specs -u _printf_float -o "TrustZone_NS_Ethernet.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
-	@echo Building target: $@ && arm-none-eabi-gcc @"TrustZone_NS_Ethernet.elf.in"
-TrustZone_NS_Ethernet.hex: TrustZone_NS_Ethernet.elf
-	arm-none-eabi-objcopy -O ihex "TrustZone_NS_Ethernet.elf"  "TrustZone_NS_Ethernet.hex"
-TrustZone_NS_Ethernet.siz: TrustZone_NS_Ethernet.elf
-	arm-none-eabi-size --format=berkeley "TrustZone_NS_Ethernet.elf"
+subf_TEE_NS.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
+	$(file > subf_TEE_NS.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "fsp.ld" -Xlinker --gc-sections -L "D:\\Workspace_e2s\\subf_TEE_NS/script" -Wl,-Map,"subf_TEE_NS.map" --specs=nano.specs -u _printf_float -o "subf_TEE_NS.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	@echo Building target: $@ && arm-none-eabi-gcc @"subf_TEE_NS.elf.in"
+subf_TEE_NS.hex: subf_TEE_NS.elf
+	arm-none-eabi-objcopy -O ihex "subf_TEE_NS.elf"  "subf_TEE_NS.hex"
+subf_TEE_NS.siz: subf_TEE_NS.elf
+	arm-none-eabi-size --format=berkeley "subf_TEE_NS.elf"
 # Other Targets
 clean:
 	-$(file > clean_file.tmp,  $(JMP_DEPS)  $(FSY_DEPS)  $(C_UPPER_DEPS)  $(SECONDARY_SIZE)  $(SRC_UPPER_DEPS)  $(P_UPPER_DEPS)  $(S_DEPS)  $(PP_UPPER_DEPS)  $(P_DEPS)  $(FSY_UPPER_DEPS)  $(C_DEPS)  $(SRC_DEPS)  $(JMP_UPPER_DEPS)  $(PP_DEPS)  $(SX_DEPS)  $(ASM_UPPER_DEPS)  $(SX_UPPER_DEPS)  $(OBJS)  $(SECONDARY_FLASH)  $(ASM_DEPS)  $(SREC)  $(S_UPPER_DEPS)  $(MAP) )
 	-@ xargs -P 2 -s 32000 -t -a clean_file.tmp $(RM)
 	-@$(RM) clean_file.tmp
-	-$(RM)  TrustZone_NS_Ethernet.elf
+	-$(RM)  subf_TEE_NS.elf
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
